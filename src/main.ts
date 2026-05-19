@@ -381,7 +381,7 @@ function updateCodePreview() {
 		return
 	}
 
-  code.textContent = `import { FluidCursor } from "@turan95/fluid-cursor"
+	code.textContent = `import { FluidCursor } from "@turan95/fluid-cursor"
 
 new FluidCursor({
   liquid: ${state.liquid},
