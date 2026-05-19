@@ -2,6 +2,14 @@
 	"name": "fluid-cursor",
 	"version": "0.1.0",
 	"description": "A lightweight liquid cursor effect with elastic motion, glow, and trail particles.",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Turan141/fluid_motion.git"
+	},
+	"bugs": {
+		"url": "https://github.com/Turan141/fluid_motion/issues"
+	},
+	"homepage": "https://github.com/Turan141/fluid_motion#readme",
 	"type": "module",
 	"main": "./dist/fluid-cursor.js",
 	"module": "./dist/fluid-cursor.js",
