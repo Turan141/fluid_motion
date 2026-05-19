@@ -1,17 +1,19 @@
 # fluid-cursor
 
+Published package: `@turan95/fluid-cursor`
+
 A lightweight, futuristic cursor effect library for websites. `fluid-cursor` creates a liquid-feeling pointer with elastic follow motion, molten membrane blobs, soft glow, morphing scale, dissolving trails, and optional fake DOM physics around nearby elements.
 
 ## Install
 
 ```bash
-npm install fluid-cursor
+npm install @turan95/fluid-cursor
 ```
 
 ## Usage
 
 ```ts
-import { FluidCursor } from "fluid-cursor"
+import { FluidCursor } from "@turan95/fluid-cursor"
 
 const cursor = new FluidCursor({
 	size: 24,
@@ -36,7 +38,7 @@ No extra CSS import is required. The package injects its own minimal runtime sty
 ## More Examples
 
 ```ts
-import { FluidCursor } from "fluid-cursor"
+import { FluidCursor } from "@turan95/fluid-cursor"
 
 const cursor = new FluidCursor({
 	color: "#6dff8b",
@@ -61,7 +63,7 @@ window.addEventListener("beforeunload", () => {
 ```
 
 ```ts
-import { FluidCursor } from "fluid-cursor"
+import { FluidCursor } from "@turan95/fluid-cursor"
 
 new FluidCursor({
 	color: "#ff7a18",

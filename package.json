@@ -1,5 +1,5 @@
 {
-	"name": "fluid-cursor",
+	"name": "@turan95/fluid-cursor",
 	"version": "0.1.0",
 	"description": "A lightweight liquid cursor effect with elastic motion, glow, and trail particles.",
 	"repository": {
