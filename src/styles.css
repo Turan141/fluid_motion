@@ -1,0 +1,128 @@
+.fluid-cursor-root {
+	position: fixed;
+	inset: 0;
+	overflow: hidden;
+	pointer-events: none;
+	z-index: var(--fc-z-index, 2147483646);
+	opacity: 0;
+	transition: opacity 180ms ease;
+	contain: layout style size;
+	isolation: isolate;
+}
+
+.fluid-cursor-root[data-visible="true"] {
+	opacity: 1;
+}
+
+.fluid-cursor-core,
+.fluid-cursor-membrane,
+.fluid-cursor-satellite,
+.fluid-cursor-glow,
+.fluid-cursor-particle {
+	position: absolute;
+	inset: 0 auto auto 0;
+	border-radius: 999px;
+	pointer-events: none;
+	will-change: transform, opacity;
+	transform: translate3d(-200px, -200px, 0);
+	mix-blend-mode: var(--fc-blend-mode, screen);
+}
+
+.fluid-cursor-core {
+	background:
+		radial-gradient(
+			circle at 28% 24%,
+			rgba(255, 255, 255, 1) 0%,
+			rgba(255, 255, 255, 0.18) 22%,
+			transparent 38%
+		),
+		radial-gradient(circle at 72% 68%, rgba(255, 255, 255, 0.24) 0%, transparent 34%),
+		radial-gradient(
+			circle at 55% 52%,
+			rgba(var(--fc-rgb, 0, 255, 255), 1) 0%,
+			rgba(var(--fc-rgb, 0, 255, 255), 0.42) 56%,
+			rgba(var(--fc-rgb, 0, 255, 255), 0.08) 100%
+		);
+	box-shadow:
+		0 0 0 1px rgba(255, 255, 255, 0.18) inset,
+		0 0 24px rgba(var(--fc-rgb, 0, 255, 255), 0.3),
+		0 0 58px rgba(var(--fc-rgb, 0, 255, 255), 0.2);
+	filter: saturate(1.24);
+}
+
+.fluid-cursor-membrane {
+	background:
+		radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.22) 0%, transparent 36%),
+		radial-gradient(
+			circle at 50% 50%,
+			rgba(var(--fc-rgb, 0, 255, 255), 0.36) 0%,
+			rgba(var(--fc-rgb, 0, 255, 255), 0.18) 46%,
+			rgba(var(--fc-rgb, 0, 255, 255), 0.04) 72%,
+			transparent 100%
+		);
+	filter: blur(10px) saturate(1.35);
+}
+
+.fluid-cursor-satellite {
+	filter: blur(8px) saturate(1.42);
+}
+
+.fluid-cursor-satellite-a {
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.42) 0%,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.34) 38%,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.02) 100%
+	);
+}
+
+.fluid-cursor-satellite-b {
+	background: radial-gradient(
+		circle,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.42) 0%,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.22) 48%,
+		transparent 100%
+	);
+}
+
+.fluid-cursor-satellite-c {
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.14) 0%,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.26) 42%,
+		transparent 100%
+	);
+	filter: blur(12px) saturate(1.5);
+}
+
+.fluid-cursor-glow {
+	background: radial-gradient(
+		circle,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.46) 0%,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.14) 40%,
+		transparent 76%
+	);
+	filter: blur(22px) saturate(1.45);
+}
+
+.fluid-cursor-particle-layer {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.fluid-cursor-particle {
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.72) 0%,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.56) 42%,
+		rgba(var(--fc-rgb, 0, 255, 255), 0.04) 100%
+	);
+	filter: blur(4px) saturate(1.35);
+}
+
+.fluid-cursor-physics-target {
+	will-change: transform, translate, rotate, scale;
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+}

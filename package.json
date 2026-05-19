@@ -1,0 +1,55 @@
+{
+	"name": "fluid-cursor",
+	"version": "0.1.0",
+	"description": "A lightweight liquid cursor effect with elastic motion, glow, and trail particles.",
+	"type": "module",
+	"main": "./dist/fluid-cursor.js",
+	"module": "./dist/fluid-cursor.js",
+	"types": "./dist/index.d.ts",
+	"style": "./dist/fluid-cursor.css",
+	"files": [
+		"dist"
+	],
+	"sideEffects": [
+		"**/*.css"
+	],
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/fluid-cursor.js"
+		},
+		"./styles.css": "./dist/fluid-cursor.css"
+	},
+	"engines": {
+		"node": ">=20.19.0"
+	},
+	"scripts": {
+		"dev": "vite",
+		"build": "npm run build:lib && npm run build:types && npm run build:style && npm run build:demo",
+		"build:types": "tsc --project tsconfig.build.json",
+		"build:lib": "vite build --mode library",
+		"build:style": "node ./scripts/copy-style.mjs",
+		"build:demo": "vite build --emptyOutDir false",
+		"check": "tsc --noEmit",
+		"preview": "vite preview",
+		"prepublishOnly": "npm run build"
+	},
+	"keywords": [
+		"cursor",
+		"trail",
+		"animation",
+		"webgl-look",
+		"ui",
+		"typescript",
+		"vite",
+		"motion"
+	],
+	"publishConfig": {
+		"access": "public"
+	},
+	"devDependencies": {
+		"@types/node": "^24.0.0",
+		"typescript": "~6.0.2",
+		"vite": "^8.0.12"
+	}
+}

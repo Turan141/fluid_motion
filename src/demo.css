@@ -1,0 +1,617 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Syncopate:wght@400;700&display=swap");
+
+:root {
+	color: #d7edff;
+	background:
+		radial-gradient(circle at 14% 14%, rgba(0, 240, 255, 0.16), transparent 28%),
+		radial-gradient(circle at 84% 18%, rgba(109, 255, 139, 0.14), transparent 24%),
+		radial-gradient(circle at 50% 100%, rgba(255, 122, 24, 0.08), transparent 32%),
+		linear-gradient(160deg, #03050b 0%, #07111d 42%, #03050a 100%);
+	font-family: "Space Grotesk", "Segoe UI", sans-serif;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	background: transparent;
+}
+
+body::before,
+body::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	pointer-events: none;
+}
+
+body::before {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+	background-size: 40px 40px;
+	mask-image: radial-gradient(circle at center, black 34%, transparent 82%);
+}
+
+body::after {
+	background: linear-gradient(
+		180deg,
+		rgba(0, 240, 255, 0.08),
+		transparent 24%,
+		transparent 74%,
+		rgba(109, 255, 139, 0.06)
+	);
+	opacity: 0.5;
+}
+
+a {
+	color: inherit;
+}
+
+button,
+input {
+	font: inherit;
+}
+
+button {
+	border: 0;
+}
+
+#app {
+	min-height: 100vh;
+}
+
+.page-shell {
+	position: relative;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 32px 24px 72px;
+}
+
+.ambient {
+	position: fixed;
+	border-radius: 999px;
+	filter: blur(90px);
+	opacity: 0.44;
+	pointer-events: none;
+}
+
+.ambient-a {
+	inset: 8% auto auto 4%;
+	width: 280px;
+	height: 280px;
+	background: rgba(0, 240, 255, 0.2);
+}
+
+.ambient-b {
+	inset: auto 10% 12% auto;
+	width: 360px;
+	height: 360px;
+	background: rgba(109, 255, 139, 0.16);
+}
+
+.ambient-c {
+	inset: 30% 26% auto auto;
+	width: 220px;
+	height: 220px;
+	background: rgba(255, 122, 24, 0.14);
+}
+
+.hero-panel,
+.control-panel {
+	position: relative;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(4, 8, 18, 0.72);
+	backdrop-filter: blur(24px);
+	box-shadow:
+		0 32px 90px rgba(0, 0, 0, 0.42),
+		inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.hero-panel {
+	display: grid;
+	grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.96fr);
+	gap: 28px;
+	border-radius: 32px;
+	padding: 34px;
+	align-items: start;
+}
+
+.hero-copy {
+	display: grid;
+	gap: 22px;
+}
+
+.eyebrow {
+	margin: 0;
+	color: #87fff2;
+	font-family: "Syncopate", "Space Grotesk", sans-serif;
+	font-size: 0.74rem;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+}
+
+h1,
+h2,
+h3,
+p {
+	margin: 0;
+}
+
+h1 {
+	max-width: 11ch;
+	font-family: "Syncopate", "Space Grotesk", sans-serif;
+	font-size: clamp(3rem, 7.6vw, 5.9rem);
+	line-height: 0.94;
+	letter-spacing: -0.045em;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: clamp(2.2rem, 4vw, 3.4rem);
+	line-height: 0.96;
+}
+
+h3 {
+	font-size: 1.35rem;
+	line-height: 1.15;
+}
+
+.lede,
+.panel-head p,
+.feature-card p,
+.stat-strip span,
+.reactor-status p,
+.reactor-card p,
+.preset-chip small {
+	color: rgba(215, 237, 255, 0.72);
+	line-height: 1.72;
+}
+
+.cta-row,
+.chip-row {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 14px;
+}
+
+.button,
+.reactor-button,
+.micro-chip,
+.preset-chip {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 999px;
+	color: #d7edff;
+	cursor: pointer;
+	text-decoration: none;
+	transition:
+		transform 180ms ease,
+		background 180ms ease,
+		border-color 180ms ease,
+		color 180ms ease;
+}
+
+.button,
+.reactor-button,
+.micro-chip {
+	min-height: 52px;
+	padding: 0 20px;
+}
+
+.button:hover,
+.reactor-button:hover,
+.micro-chip:hover,
+.preset-chip:hover {
+	transform: translateY(-2px);
+}
+
+.button-primary,
+.reactor-button {
+	background: linear-gradient(135deg, #00f0ff, #6dff8b);
+	color: #05111d;
+	font-weight: 700;
+}
+
+.button-secondary,
+.micro-chip {
+	border: 1px solid rgba(255, 255, 255, 0.12);
+	background: rgba(255, 255, 255, 0.03);
+}
+
+.feature-grid,
+.control-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.feature-card,
+.code-card,
+.control-card,
+.toggle-card,
+.preset-chip,
+.reactor-card,
+.reactor-status,
+.stat-strip,
+.showcase-panel {
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background: rgba(255, 255, 255, 0.03);
+}
+
+.feature-card,
+.reactor-card,
+.reactor-status {
+	border-radius: 24px;
+	padding: 20px;
+}
+
+.feature-card span,
+.card-kicker,
+.status-label {
+	display: inline-block;
+	margin-bottom: 14px;
+	color: rgba(135, 255, 242, 0.76);
+	font-size: 0.76rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.feature-card strong,
+.stat-strip strong,
+.reactor-status strong {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 1.05rem;
+}
+
+.showcase-panel {
+	position: relative;
+	overflow: hidden;
+	display: grid;
+	grid-template-rows: auto minmax(380px, 1fr) auto auto;
+	gap: 18px;
+	min-height: 100%;
+	border-radius: 28px;
+	padding: 22px;
+}
+
+.showcase-panel > * {
+	min-width: 0;
+}
+
+.showcase-ring {
+	position: absolute;
+	inset: 18px;
+	border: 1px solid rgba(0, 240, 255, 0.2);
+	border-radius: 28px;
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.reactor-panel {
+	grid-template-rows: auto auto auto auto;
+}
+
+.reactor-status {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	gap: 10px;
+}
+
+.reactor-stage {
+	position: relative;
+	min-height: 360px;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	align-items: end;
+	gap: 18px;
+	padding: 22px;
+	overflow: hidden;
+	border-radius: 28px;
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	background:
+		radial-gradient(circle at center, rgba(0, 240, 255, 0.12), transparent 34%),
+		linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+}
+
+.reactor-grid,
+.reactor-orbit {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.reactor-grid {
+	background-image:
+		linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+	background-size: 28px 28px;
+	mask-image: radial-gradient(circle at center, black 36%, transparent 78%);
+}
+
+.reactor-orbit {
+	border-radius: 50%;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.orbit-a {
+	inset: 18% 24%;
+}
+
+.orbit-b {
+	inset: 28% 12%;
+}
+
+.reactor-card {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	gap: 12px;
+	max-width: none;
+	min-height: 100%;
+	align-content: start;
+}
+
+.reactor-card-primary {
+	grid-column: 1;
+	grid-row: 1;
+}
+
+.reactor-card-secondary {
+	grid-column: 2;
+	grid-row: 1;
+	align-self: end;
+}
+
+.code-card {
+	position: relative;
+	z-index: 1;
+	border-radius: 24px;
+	padding: 18px;
+}
+
+.code-header {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 14px;
+}
+
+.code-header span {
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.22);
+}
+
+.code-header span:first-child {
+	background: #ff7a18;
+}
+
+.code-header span:nth-child(2) {
+	background: #6dff8b;
+}
+
+.code-header span:last-child {
+	background: #00f0ff;
+}
+
+pre {
+	margin: 0;
+	white-space: pre-wrap;
+	color: #bafcff;
+	font-size: 0.96rem;
+	line-height: 1.8;
+}
+
+.stat-strip {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 10px;
+	border-radius: 22px;
+	padding: 14px;
+}
+
+.stat-strip > div {
+	border-radius: 18px;
+	padding: 12px;
+	background: rgba(255, 255, 255, 0.02);
+}
+
+.control-panel {
+	margin-top: 26px;
+	border-radius: 32px;
+	padding: 30px;
+}
+
+.controls-shell {
+	display: grid;
+	gap: 18px;
+	margin-top: 26px;
+}
+
+.panel-head {
+	display: grid;
+	gap: 12px;
+	max-width: 720px;
+}
+
+.preset-row {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.preset-chip {
+	justify-content: flex-start;
+	gap: 14px;
+	padding: 18px;
+	text-align: left;
+}
+
+.preset-chip span:last-child {
+	display: grid;
+	gap: 6px;
+}
+
+.preset-chip strong {
+	font-size: 1rem;
+}
+
+.preset-chip small {
+	font-size: 0.82rem;
+}
+
+.preset-chip.is-active {
+	border-color: rgba(255, 255, 255, 0.2);
+	background: rgba(255, 255, 255, 0.08);
+}
+
+.preset-swatch {
+	flex: 0 0 auto;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background: var(--swatch);
+	box-shadow: 0 0 18px var(--swatch);
+}
+
+.controls-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1.7fr) minmax(250px, 0.9fr);
+	gap: 16px;
+	align-items: start;
+}
+
+.slider-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 14px;
+}
+
+.toggle-grid {
+	display: grid;
+	gap: 14px;
+}
+
+.control-card,
+.toggle-card {
+	display: grid;
+	gap: 14px;
+	border-radius: 24px;
+	padding: 18px;
+}
+
+.control-card {
+	min-height: 140px;
+	align-content: space-between;
+}
+
+.control-card span,
+.toggle-card span {
+	color: rgba(215, 237, 255, 0.72);
+}
+
+.control-card strong {
+	font-size: 1.2rem;
+}
+
+.color-card input {
+	width: 100%;
+	min-height: 48px;
+	padding: 0;
+	border: none;
+	background: transparent;
+}
+
+input[type="range"] {
+	width: 100%;
+	accent-color: #00f0ff;
+}
+
+.toggle-card {
+	align-items: center;
+	grid-template-columns: auto 1fr;
+	justify-content: start;
+	min-height: 76px;
+}
+
+.toggle-card input {
+	width: 18px;
+	height: 18px;
+	accent-color: #6dff8b;
+}
+
+@media (max-width: 1080px) {
+	.hero-panel {
+		grid-template-columns: 1fr;
+	}
+
+	.feature-grid,
+	.preset-row,
+	.stat-strip {
+		grid-template-columns: 1fr;
+	}
+
+	.controls-layout,
+	.slider-grid {
+		grid-template-columns: 1fr;
+	}
+
+	.reactor-card {
+		min-height: auto;
+	}
+
+	.reactor-stage {
+		grid-template-columns: 1fr;
+		min-height: auto;
+	}
+
+	.reactor-card-primary,
+	.reactor-card-secondary {
+		grid-column: auto;
+		grid-row: auto;
+	}
+
+	h1 {
+		max-width: none;
+	}
+}
+
+@media (max-width: 680px) {
+	.page-shell {
+		padding: 16px 14px 42px;
+	}
+
+	.hero-panel,
+	.control-panel {
+		padding: 22px;
+		border-radius: 24px;
+	}
+
+	.cta-row,
+	.chip-row {
+		flex-direction: column;
+	}
+
+	.button,
+	.reactor-button,
+	.micro-chip,
+	.preset-chip {
+		width: 100%;
+	}
+}
