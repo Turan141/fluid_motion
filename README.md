@@ -1,5 +1,9 @@
 # fluid-cursor
 
+[![npm version](https://img.shields.io/npm/v/%40turan95%2Ffluid-cursor?color=00f0ff&label=npm)](https://www.npmjs.com/package/@turan95/fluid-cursor)
+[![npm downloads](https://img.shields.io/npm/dm/%40turan95%2Ffluid-cursor?color=6dff8b&label=downloads)](https://www.npmjs.com/package/@turan95/fluid-cursor)
+[![GitHub](https://img.shields.io/badge/github-fluid__motion-0b1220?logo=github)](https://github.com/Turan141/fluid_motion)
+
 Published package: `@turan95/fluid-cursor`
 
 A lightweight, futuristic cursor effect library for websites. `fluid-cursor` creates a liquid-feeling pointer with elastic follow motion, molten membrane blobs, soft glow, morphing scale, dissolving trails, and optional fake DOM physics around nearby elements.
